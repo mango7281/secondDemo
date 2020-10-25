@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box>h1{
+            color: rgb(240,65,85,0.5);
+        }
+    </style>
+</head>
+<body>
+    
+    <div>
+        <div id="btn" style="width: 100px;height: 50px;background-color: red;">
+        </div>
+    </div>
+
+</body>
+<script>
+    for (var i = 0; i < 10; i++) { 
+        setTimeout(function() { console.log(i); }, 100 * i); 
+    }
+
+    for (var i = 0; i < 10; i++) { 
+        ((j) => {setTimeout(function() { console.log(j); }, 100 * i);})(i)
+    }
+
+    async function async1(){ 
+        console.log('async1 start') 
+        await async2() 
+        console.log('async1 end') 
+    } 
+
+    async function async2(){ 
+        console.log('async2') 
+    } 
+
+    console.log('script start') 
+
+    setTimeout(function(){ 
+        console.log('setTimeout')  
+    },0) 
+
+    async1(); 
+
+    new promise(function(resolve){ 
+        console.log('promise1') 
+        resolve(); 
+    }).then(function(){ 
+        console.log('promise2') 
+    }) 
+
+    console.log('script end')
+
+    function MAN() {}; 
+    MAN.prototype = { 
+        value: "Jeson", 
+        wakeUp: function(event) { 
+            console.log(this.value); 
+        } 
+    }; 
+    var man = new MAN;//实例化 
+    var button = document.getElementById('btn'); 
+
+    // button.addEventListener("click", man.wakeUp, false);
+
+    // button.addEventListener("click", function() { 
+    //     MAN.prototype.wakeUp.apply(man, arguments); 
+    // }, false);
+
+    button.value = ['eileen', 'mark']; 
+    button.addEventListener("click", function() { 
+        MAN.prototype.wakeUp.apply(this, arguments); 
+    }, false);
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            
+        }
+        .content {
+            background-color: red;
+            
+            /* 垂直居中 */
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            /* 高度自适应 + 左右距离10px */
+            width: calc(100vw - 20px);
+            height: calc(50vw - 10px);   /*width/2*/
+            /* 内部内容样式 */
+            font-size: 24px;
+            /* 内部内容垂直居中 */
+            display: flex;
+			align-items: center;
+			justify-content: center;
+            /* 省略换行 ！！！未实现！！！*/
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="content">
+            AAAAAAAAAAA
+        </div>
+    </div>
+</body>
+</html>
